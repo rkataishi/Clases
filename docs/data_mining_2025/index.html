@@ -5,40 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Curso de Data Mining – UTN 2025</title>
   <style>
-    :root {
-      --bg: #fefefe;
-      --text: #222;
-      --accent: #005a8d;
-      --gray: #aaa;
-      --card-bg: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
+      background: #fefefe;
+      color: #222;
       line-height: 1.6;
       scroll-behavior: smooth;
     }
 
-    header {
-      position: sticky;
-      top: 0;
+    header, footer {
       background: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       padding: 1rem 2rem;
-      z-index: 999;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.6rem;
-      color: var(--accent);
+    header img, footer img {
+      height: 50px;
+      margin: 0 10px;
+      vertical-align: middle;
     }
 
     main {
@@ -49,16 +35,21 @@
 
     section {
       margin-bottom: 3rem;
-      animation: fadeIn 1s ease-in;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #005a8d;
+      margin: 0;
     }
 
     h2 {
-      border-bottom: 2px solid var(--accent);
+      border-bottom: 2px solid #005a8d;
       padding-bottom: 0.4rem;
       margin-top: 2rem;
     }
 
-    ul {
+    ul, ol {
       list-style: none;
       padding-left: 0;
     }
@@ -68,14 +59,12 @@
     }
 
     a {
-      color: var(--accent);
+      color: #005a8d;
       text-decoration: none;
-      transition: all 0.3s;
     }
 
     a:hover {
       text-decoration: underline;
-      color: #003f63;
     }
 
     .folder {
@@ -83,38 +72,47 @@
       background: #eee;
       padding: 0.2rem 0.4rem;
       border-radius: 4px;
-      display: inline-block;
     }
 
-    ol li {
-      margin-bottom: 0.5rem;
+    .bio {
+      background: #f3f3f3;
+      padding: 1.5rem;
+      border-radius: 6px;
+      margin-top: 3rem;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .bio h3 {
+      margin-top: 0;
+      color: #005a8d;
+    }
+
+    footer {
+      margin-top: 4rem;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
     }
 
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.3rem;
+      header img, footer img {
+        height: 40px;
+        margin: 6px;
       }
-      main {
-        padding: 0 0.5rem;
+
+      h1 {
+        font-size: 1.4rem;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
+    <img src="https://innovavista.net/imagenes/archivos/proyectos/272_imagen_750x480xrecortarSuperior.jpg?random=1745242407" alt="Logo UTN">
+    <img src="https://www.untdf.edu.ar/uploads/noticias/universidad_publica_argentina_ok_1712763862.jpg" alt="Logo Universidad Pública Argentina">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEd6KciGJSSvPxoN8lNJns72XdNI_KFzeRqw&s" alt="Logo CONICET">
     <h1>Curso de Data Mining – UTN 2025</h1>
   </header>
+
   <main>
     <p>Este repositorio contiene el material del curso de Data Mining dictado en la UTN durante 2025. Se organiza por módulos temáticos. Las notebooks pueden ejecutarse directamente en Google Colab y todos los materiales son de libre acceso.</p>
 
@@ -174,6 +172,25 @@
         <li>Los scripts <code>.py</code> pueden ser reutilizados o adaptados para ejercicios propios.</li>
       </ol>
     </section>
+
+    <section class="bio">
+      <h3>Docente responsable</h3>
+      <p><strong>Dr. Rodrigo Kataishi</strong>, Ph.D. in Economics (Università Degli Studi di Torino, Italy)<br>
+      Investigador Adjunto CONICET / Profesor Asociado IDEI-UNTDF<br>
+      Instituto de Desarrollo Económico e Innovación<br>
+      Universidad Nacional de Tierra del Fuego</p>
+
+      <p>Rodrigo Kataishi es Investigador Adjunto del CONICET y Profesor Asociado de la Universidad Nacional de Tierra del Fuego en su Instituto de Desarrollo Económico e Innovación. Da clases en nivel de grado, maestría y doctorado en Argentina y América Latina. Fue coordinador de la Lic. en Economía de la UNTDF y coordinador de Investigación, Vinculación y Extensión en el IDEI-UNTDF. Sus área de trabajo se centra en los campos de la economía del desarrollo, especialmente en el rol de la Innovación y de los sistemas de ciencia y tecnología en diferentes espacios territoriales. Es Doctor en Economía (PhD in Economics, Univ. de Torino, Italia) con una tesis sobre dinámicas sesgadas de cambio tecnológico internacional, dirigido por el Prof. C. Antonelli, tema con el cual también finalizó su post-doc en dicha institución. Fue Becario Doctoral CONICET (tipo I y tipo II) dirigido por el Prof. G. Yoguel. A nivel internacional, investigó para la CEPAL (Naciones Unidas), y participó de proyectos financiados por el VII Programa Marco de la Unión Europea, IDRC, la Fundación Carolina y FLACSO, entre otros. Se especializó en la coordinación y dirección de trabajos de campo de nivel cuantitativo y cualitativo (en Argentina, Italia y en proyectos internacionales). Colaboró con el gobierno argentino en el MTSSE, MINCYT y MPE, entre otros. Forma parte de equipos de asesoramiento a senadores y diputados nacionales. Fue consultor del CIECTI-MINCYT, evaluador nacional de proyectos de investigación (FONCYT-PICT) y peer-reviewer en revistas de alto prestigio. Entre sus temas destacados de trabajo, se encuentran el cambio estructural en la economía argentina, las competencias de firmas y organizaciones, las características de sistemas de CyT, la productividad de las empresas en contextos periféricos y el cambio técnico global. Desde el punto de vista sectorial, trabaja en los desafíos de la diversificación productiva argentina y patagónica, y ha realizado estudios acerca de múltiples actividades empresariales en la industria metalmecánica, la industria electrónica, el sector TICs, software, pesca, turismo y automotriz, entre otros.</p>
+
+      <p><strong>Expertise técnico:</strong> econometría, machine learning, análisis semántico, análisis de redes (SNA). Proficiente en Python y Stata.</p>
+    </section>
   </main>
+
+  <footer>
+    <img src="https://innovavista.net/imagenes/archivos/proyectos/272_imagen_750x480xrecortarSuperior.jpg?random=1745242407" alt="Logo UTN">
+    <img src="https://www.untdf.edu.ar/uploads/noticias/universidad_publica_argentina_ok_1712763862.jpg" alt="Logo Universidad Pública Argentina">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEd6KciGJSSvPxoN8lNJns72XdNI_KFzeRqw&s" alt="Logo CONICET">
+  </footer>
+
 </body>
 </html>
