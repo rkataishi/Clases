@@ -35,18 +35,28 @@
 
     section {
       margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
+
+    section.fade-in {
+      opacity: 1;
+      transform: none;
+    }
+
     header h1 {
       margin: 0;
       font-size: 1.6rem;
       color: #005a8d;
     }
-    
+
     header h2 {
       margin: 0.2rem 0 0;
       font-size: 1.2rem;
       color: #333;
     }
+
     h1 {
       font-size: 1.8rem;
       color: #005a8d;
@@ -123,7 +133,6 @@
     <h1>Curso de Data Mining – Edición 2025</h1>
     <h2>Maestría en Minería de Datos – UTN Rosario</h2>
     <h2>Profesor Rodrigo Kataishi</h2>
-
   </header>
 
   <main>
@@ -186,14 +195,11 @@
       </ol>
     </section>
 
-<section class="bio">
-
-  <h3>Docente responsable</h3>
-    Rodrigo Kataishi, Ph.D., es investigador del CONICET y docente en la Universidad Nacional de Tierra del Fuego. Su perfil está fuertemente orientado al diseño empírico, ejecución de trabajos de campo cuantitativos y cualitativos, recolección y sistematización de datos y fuentes. A nivel técnico, lidera equipos en gestión de bases, análisis econométrico, data science y data mining. Tiene experiencia avanzada en machine learning, time series, análisis semántico y análisis de redes sociales (SNA). Es proficiente en Python y Stata, y posee un enfoque aplicado al estudio de fenómenos económicos, productivos y tecnológicos en contextos periféricos.
-  <br>  <br>
-    Participó como investigador en proyectos de diversas universidades de Argentina y América Latina, la CEPAL, la Unión Europea, IDRC, Fundación Carolina y FLACSO, entre otros. Colaboró con organismos públicos como el MINCYT, el MTSSE y el MPE. Ha sido evaluador de proyectos nacionales (FONCYT-PICT), en la Comisión de Becas CONICET y es revisor en múltiples revistas especializadas. Su trabajo se orienta al análisis estructural de sistemas de innovación, capacidades tecnológicas y procesos de cambio técnico. Desde una perspectiva sectorial, ha trabajado en los sectores metalmecánico, electrónico, software, TICs, pesca, turismo y automotriz.
-  
-</section>
+    <section class="bio">
+      <h3>Docente responsable</h3>
+      Rodrigo Kataishi, Ph.D., es investigador del CONICET y docente en la Universidad Nacional de Tierra del Fuego. Su perfil está fuertemente orientado al diseño empírico, ejecución de trabajos de campo cuantitativos y cualitativos, recolección y sistematización de datos y fuentes. A nivel técnico, lidera equipos en gestión de bases, análisis econométrico, data science y data mining. Tiene experiencia avanzada en machine learning, time series, análisis semántico y análisis de redes sociales (SNA). Es proficiente en Python y Stata, y posee un enfoque aplicado al estudio de fenómenos económicos, productivos y tecnológicos en contextos periféricos.<br><br>
+      Participó como investigador en proyectos de diversas universidades de Argentina y América Latina, la CEPAL, la Unión Europea, IDRC, Fundación Carolina y FLACSO, entre otros. Colaboró con organismos públicos como el MINCYT, el MTSSE y el MPE. Ha sido evaluador de proyectos nacionales (FONCYT-PICT), en la Comisión de Becas CONICET y es revisor en múltiples revistas especializadas. Su trabajo se orienta al análisis estructural de sistemas de innovación, capacidades tecnológicas y procesos de cambio técnico. Desde una perspectiva sectorial, ha trabajado en los sectores metalmecánico, electrónico, software, TICs, pesca, turismo y automotriz.
+    </section>
   </main>
 
   <footer>
@@ -202,5 +208,19 @@
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEd6KciGJSSvPxoN8lNJns72XdNI_KFzeRqw&s" alt="Logo CONICET">
   </footer>
 
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
