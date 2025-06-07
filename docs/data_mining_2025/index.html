@@ -1,68 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Curso de Data Mining – UTN 2025</title>
+  <style>
+    :root {
+      --bg: #fefefe;
+      --text: #222;
+      --accent: #005a8d;
+      --gray: #aaa;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      z-index: 999;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      animation: fadeIn 1s ease-in;
+    }
+
+    h2 {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.4rem;
+      margin-top: 2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin: 0.8rem 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #003f63;
+    }
+
+    .folder {
+      font-family: monospace;
+      background: #eee;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    ol li {
+      margin-bottom: 0.5rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+      main {
+        padding: 0 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Curso de Data Mining – UTN 2025</h1>
-  <p>Este repositorio contiene el material del curso de Data Mining dictado en la UTN durante 2025. Se organiza por módulos temáticos. Las notebooks pueden ejecutarse directamente en Google Colab y todos los materiales son de libre acceso.</p>
+  <header>
+    <h1>Curso de Data Mining – UTN 2025</h1>
+  </header>
+  <main>
+    <p>Este repositorio contiene el material del curso de Data Mining dictado en la UTN durante 2025. Se organiza por módulos temáticos. Las notebooks pueden ejecutarse directamente en Google Colab y todos los materiales son de libre acceso.</p>
 
-  <hr>
+    <section>
+      <h2>Clases teóricas</h2>
+      <ul>
+        <li><a href="https://raw.githubusercontent.com/rkataishi/Clases/main/Curso%20Data%20Mining%20UTN%20-%202025/kdd/clase%20-%20data%20mining.pdf" target="_blank">Clase teórica introductoria: ¿Qué es Data Mining?</a></li>
+        <li><a href="https://raw.githubusercontent.com/rkataishi/Clases/main/Curso%20Data%20Mining%20UTN%20-%202025/kdd/Clase%20-%20kdd.pdf" target="_blank">Clase teórica: Enfoque KDD y proceso de descubrimiento de conocimiento</a></li>
+      </ul>
+    </section>
 
-  <h2>Clases teóricas</h2>
-  <ul>
-    <li><a href="https://raw.githubusercontent.com/rkataishi/Clases/main/Curso%20Data%20Mining%20UTN%20-%202025/kdd/clase%20-%20data%20mining.pdf" target="_blank">Clase teórica introductoria: ¿Qué es Data Mining?</a></li>
-    <li><a href="https://raw.githubusercontent.com/rkataishi/Clases/main/Curso%20Data%20Mining%20UTN%20-%202025/kdd/Clase%20-%20kdd.pdf" target="_blank">Clase teórica: Enfoque KDD y proceso de descubrimiento de conocimiento</a></li>
-  </ul>
+    <section>
+      <h2>Práctica con Python y Pandas</h2>
+      <ul>
+        <li><a href="https://raw.githubusercontent.com/rkataishi/Clases/main/Curso%20Data%20Mining%20UTN%20-%202025/python_101/Clase%20-%20python%20101.pdf" target="_blank">Clase práctica: Introducción a Python y Pandas (PDF)</a></li>
+        <li><a href="https://colab.research.google.com/drive/1Ts4uGfgRa6mvszctBTw-8U-rfChZHdeE#scrollTo=_EQYWljIxc7r" target="_blank">Aprendiendo Python, pip, pandas y librerías clave (Google Colab)</a></li>
+      </ul>
+    </section>
 
-  <hr>
+    <section>
+      <h2>De la exploración de datos y regresiones al Machine Learning</h2>
+      <ul>
+        <li><a href="https://colab.research.google.com/drive/1thM4bix-XTWecmbEIAS1iz9KzmW88UKS#scrollTo=LeZMNVK_4qac" target="_blank">Data Transformation, EDA, Regresiones Paramétricas y Regression Trees (Google Colab)</a></li>
+      </ul>
+    </section>
 
-  <h2>Práctica con Python y Pandas</h2>
-  <ul>
-    <li><a href="https://raw.githubusercontent.com/rkataishi/Clases/main/Curso%20Data%20Mining%20UTN%20-%202025/python_101/Clase%20-%20python%20101.pdf" target="_blank">Clase práctica: Introducción a Python y Pandas</a></li>
-    <li><a href="https://colab.research.google.com/drive/1Ts4uGfgRa6mvszctBTw-8U-rfChZHdeE#scrollTo=_EQYWljIxc7r" target="_blank">Aprendiendo Python, pip, pandas y librerías clave (Google Colab)</a></li>
-  </ul>
+    <section>
+      <h2>Machine Learning con Árboles de decisión, Bagging y Random Forests</h2>
+      <ul>
+        <li><a href="https://colab.research.google.com/drive/1bs1ypPmX0MJx8DU8CT3FYQvdNCwxSQ2Y#scrollTo=Im2MsSZwoBFZ" target="_blank">Categorical Trees y Random Forests (Google Colab)</a></li>
+      </ul>
+    </section>
 
-  <hr>
+    <section>
+      <h2>Machine Learning No Supervisado: Clustering y clasificación avanzada</h2>
+      <ul>
+        <li><a href="https://colab.research.google.com/drive/1GKY2BCG9Z89-y8ou4pfNB3Zh0_jmuWWE" target="_blank">Del PCA al K-Means, jerárquico y DBSCAN (Google Colab)</a></li>
+      </ul>
+    </section>
 
-  <h2>De la exploración de datos y regresiones al Machine Learning</h2>
-  <ul>
-    <li><a href="https://colab.research.google.com/drive/1thM4bix-XTWecmbEIAS1iz9KzmW88UKS#scrollTo=LeZMNVK_4qac" target="_blank">Data Transformation, EDA, Regresiones Paramétricas y enfoque no paramétrico de Regression Trees (Google Colab)</a></li>
-  </ul>
+    <section>
+      <h2>Estructura de carpetas</h2>
+      <ul>
+        <li><span class="folder">python_101/</span> – Introducción práctica a Python y Pandas</li>
+        <li><span class="folder">Eda_Regressions/</span> – Análisis exploratorio y regresiones</li>
+        <li><span class="folder">Trees_Forests/</span> – Árboles de decisión y Random Forest</li>
+        <li><span class="folder">kdd/</span> – Clases teóricas sobre minería de datos y KDD</li>
+        <li><span class="folder">clustering/</span> – Técnicas de clustering y clasificación no supervisada <em>(pendiente de carga)</em></li>
+      </ul>
+    </section>
 
-  <hr>
-
-  <h2>Machine Learning con Árboles de decisión, Bagging y Random Forests</h2>
-  <ul>
-    <li><a href="https://colab.research.google.com/drive/1bs1ypPmX0MJx8DU8CT3FYQvdNCwxSQ2Y#scrollTo=Im2MsSZwoBFZ" target="_blank">Machine Learning con Categorical Trees y Random Forests (Google Colab)</a></li>
-  </ul>
-
-  <hr>
-
-  <h2>Machine Learning No Supervisado: Clustering y clasificación avanzada</h2>
-  <ul>
-    <li><a href="https://colab.research.google.com/drive/1GKY2BCG9Z89-y8ou4pfNB3Zh0_jmuWWE" target="_blank">Introducción a técnicas de clustering y clasificación: del PCA al K-Means, jerárquico y DBSCAN (Google Colab)</a></li>
-  </ul>
-
-  <hr>
-
-  <h2>Estructura de carpetas</h2>
-  <ul>
-    <li><code>python_101/</code> – Introducción práctica a Python y Pandas</li>
-    <li><code>Eda_Regressions/</code> – Análisis exploratorio y regresiones</li>
-    <li><code>Trees_Forests/</code> – Árboles de decisión y Random Forest</li>
-    <li><code>kdd/</code> – Clases teóricas sobre minería de datos y KDD</li>
-    <li><code>clustering/</code> – Técnicas de clustering y clasificación no supervisada <em>(pendiente de carga)</em></li>
-  </ul>
-
-  <hr>
-
-  <h2>Cómo usar este repositorio</h2>
-  <ol>
-    <li>Los PDFs se abren en una nueva pestaña desde cualquier navegador.</li>
-    <li>Las notebooks pueden ejecutarse en Google Colab con un clic.</li>
-    <li>Los scripts <code>.py</code> pueden ser reutilizados o adaptados para ejercicios propios.</li>
-  </ol>
+    <section>
+      <h2>Cómo usar este repositorio</h2>
+      <ol>
+        <li>Los PDFs se abren en una nueva pestaña desde cualquier navegador.</li>
+        <li>Las notebooks pueden ejecutarse en Google Colab con un clic.</li>
+        <li>Los scripts <code>.py</code> pueden ser reutilizados o adaptados para ejercicios propios.</li>
+      </ol>
+    </section>
+  </main>
 </body>
 </html>
