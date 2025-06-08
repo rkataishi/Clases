@@ -43,7 +43,7 @@ Este repositorio contiene el material del curso de Data Mining dictado en la UTN
 - `Eda_Regressions/` – Análisis exploratorio y regresiones
 - `Trees_Forests/` – Árboles de decisión y Random Forest
 - `kdd/` – Clases teóricas sobre minería de datos y KDD
-- `clustering/` – Técnicas de clustering y clasificación no supervisada _(pendiente de carga)_
+- `clustering/` – Técnicas de clustering y clasificación no supervisada
 
 ---
 
