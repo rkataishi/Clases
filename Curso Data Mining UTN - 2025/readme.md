@@ -44,6 +44,12 @@ Este repositorio contiene el material del curso de Data Mining dictado en la UTN
 - `kdd/` – Clases teóricas sobre minería de datos y KDD
 - `clustering/` – Técnicas de clustering y clasificación no supervisada
 
+
+> En caso de que los links no se abran en google colab:
+
+[![Abrir en Google Colab](https://github.com/rkataishi/Clases/raw/b1ffbe945582aac8273033f9a049f7378305c20d/Curso%20Data%20Mining%20UTN%20-%202025/python_101/google_colab.png)](https://colab.research.google.com/github/rkataishi/Clases/blob/main/ruta/al/notebook.ipynb)
+
+
 ---
 
 ## Cómo usar este repositorio
