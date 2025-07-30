@@ -32,7 +32,7 @@ Este repositorio contiene el material del curso de Data Mining dictado en la UTN
 
 ## Machine Learning No Supervisado: Clustering y clasificación avanzada
 
-- [Introducción a técnicas de clustering y clasificación: del PCA al K-Means, jerárquico y DBSCAN (Google Colab)](https://colab.research.google.com/drive/1pGlFuoZpa7BO2YnjFHC6-PhpEj9h5avV#scrollTo=76bafbf2)  
+- [Introducción a técnicas de clustering y clasificación: del PCA al K-Means y UMAP (Google Colab)](https://colab.research.google.com/drive/1pGlFuoZpa7BO2YnjFHC6-PhpEj9h5avV#scrollTo=76bafbf2)  
   
 ---
 
