@@ -538,7 +538,7 @@
 }
 
 /* Docente expander styles */
-.docente-card { display: grid; grid-template-columns: 140px 1fr; gap: 1rem; align-items: start; }
+.docente-card { display: grid; grid-template-columns: 140px 1fr; gap: 1rem; align-items: center; } /* <-- center photo vertically */
 .docente-photo { width: 140px; height: 140px; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
 .docente-bio { line-height: 1.6; }
 .docente-bio.collapsed { display: -webkit-box; -webkit-line-clamp: 10; -webkit-box-orient: vertical; overflow: hidden; position: relative; }
@@ -547,13 +547,14 @@
 
 /* Docente section dark gray override */
 #docente { background: #666; padding: 2rem 0; color: #fff; }
-#docente .section-title { color: #fff; }
+#docente .section-title { color: #fff; text-decoration: underline; } /* <-- underline title */
 #docente .card { background: transparent; border: 1px solid rgba(255, 255, 255, 0.25); }
 #docente .card-title { color: #fff; }
 #docente .card-description { color: #fff; }
 #docente .docente-toggle { color: #fff; }
 #docente .docente-photo { border-color: rgba(255, 255, 255, 0.35); }
 #docente .section-header, #docente .docente-card { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+#docente .section-header { margin-bottom: 1.5rem; } /* <-- vertical space below title */
 #docente .docente-photo { display: block; }
 
 /* Docente bio animation override */
@@ -1002,18 +1003,15 @@ Participó como investigador en proyectos de diversas universidades de Argentina
             <div class="grid grid-cols-3">
                 <div class="card" onclick="showResourcePopup()">
                     <div class="card-header">
-                        <h3 class="card-title">Plantillas editoriales (LaTeX/Beamer/DOCX)</h3>
+                        <h3 class="card-title">Plantillas (Word/PPT/LaTeX) y herramientas </h3>
                     </div>
                     <p class="card-description">
-                        Paquete de plantillas para papers, presentaciones y ensayos. Recursos en desarrollo.
+                        Paquete de plantillas para entregas, papers, presentaciones y ensayos.Secuencias y pautas para presentador y comentaristas.
                     </p>
                 </div>
-                <div class="card" onclick="showResourcePopup()">
-                    <div class="card-header">
-                        <h3 class="card-title">Protocolos de taller y roles</h3>
-                    </div>
+                
                     <p class="card-description">
-                        Secuencias y pautas para presentador y comentaristas. Recursos en desarrollo.
+                        
                     </p>
                 </div>
                 <div class="card" onclick="showResourcePopup()">
@@ -1021,15 +1019,15 @@ Participó como investigador en proyectos de diversas universidades de Argentina
                         <h3 class="card-title">Lecturas multimodales</h3>
                     </div>
                     <p class="card-description">
-                        Selecciones curadas y guías con timestamps y preguntas. Recursos en desarrollo.
+                        Selecciones de material multimedia curado, guías de consulta con timestamps y guias de preguntas.
                     </p>
                 </div>
                 <div class="card" onclick="showResourcePopup()">
                     <div class="card-header">
-                        <h3 class="card-title">Campos y problemas</h3>
+                        <h3 class="card-title">Campos y problemas relacionados</h3>
                     </div>
                     <p class="card-description">
-                        Fichas temáticas, vínculos y escenas empíricas. Recursos en desarrollo.
+                        Fichas asociadas, vínculos temáticos y conexiones empíricas.
                     </p>
                 </div>
             </div>
