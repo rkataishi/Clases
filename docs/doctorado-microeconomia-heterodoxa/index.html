@@ -499,17 +499,11 @@
         }
         /* Top Logos Bar */
         .top-logos {
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 0.5rem 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
+            /* removed: migrated logos into nav */
         }
-        .top-logos img {
-            height: 48px;
-            max-width: 180px;
+        .nav-logos img {
+            height: 32px; /* <-- smaller height for nav */
+            max-width: 140px;
             object-fit: contain;
             display: block;
         }
@@ -522,7 +516,7 @@
             background: transparent;
         }
         nav {
-            background: rgba(44, 62, 80, 0.45);
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.5) 12%, rgba(44, 62, 80, 0.45) 35%, rgba(44, 62, 80, 0.45) 100%);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -569,11 +563,7 @@
 </head>
 <body>
     <!-- Top Logos -->
-    <div class="top-logos">
-        <img src="http://www.untdf.edu.ar/uploads/logo_untdf_1563196377.png" alt="Logo UNTDF"> <!-- <-- -->
-        <img src="https://www.untdf.edu.ar/uploads/noticias/universidad_publica_argentina_ok_1712763862.jpg" alt="Logo Universidad Pública Argentina"> <!-- <-- -->
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEd6KciGJSSvPxoN8lNJns72XdNI_KFzeRqw&s" alt="Logo CONICET"> <!-- <-- -->
-    </div>
+    <!-- removed: logos moved into nav -->
     <!-- Header -->
     <header>
         <nav>
@@ -589,6 +579,11 @@
                 <li><a href="#calendario">Calendario</a></li>
                 <li><a href="#recursos">Recursos</a></li>
             </ul>
+            <div class="nav-logos"> <!-- <-- logos moved into nav, right side -->
+                <img src="http://www.untdf.edu.ar/uploads/logo_untdf_1563196377.png" alt="Logo UNTDF"> <!-- <-- -->
+                <img src="https://www.untdf.edu.ar/uploads/noticias/universidad_publica_argentina_ok_1712763862.jpg" alt="Logo Universidad Pública Argentina"> <!-- <-- -->
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEd6KciGJSSvPxoN8lNJns72XdNI_KFzeRqw&s" alt="Logo CONICET"> <!-- <-- -->
+            </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -669,6 +664,7 @@ A nivel internacional, ha investigado para la CEPAL (Naciones Unidas) y particip
 
 Participó como investigador en proyectos de diversas universidades de Argentina y América Latina, la CEPAL, la Unión Europea, IDRC, Fundación Carolina y FLACSO, entre otros. Colaboró con organismos públicos como el MINCYT, el MTSSE y el MPE. Ha sido evaluador de proyectos nacionales (Agencia, FONCYT, PICT, entre otros), de proyectos y programas en Universidades Nacionales, y participó como especialista en la evaluación de ingresos a carrera en CONICET, así como en diversas Comisiones de Evaluación de Becas Doctorales y Posdoctorales de la misma institución. A nivel temático, su trabajo se orienta al análisis estructural de sistemas de innovación, capacidades tecnológicas y procesos de cambio técnico. Desde una perspectiva sectorial, ha trabajado y publicado acerca de los sectores metalmecánico, electrónico, software, TICs, pesca, turismo y automotriz, entre otros.
                 </div>
+                <div class="docente-toggle" onclick="toggleDocenteBio()">Ver más</div>
             </div>
         </section>
         <!-- Materials Section -->
@@ -1033,10 +1029,13 @@ Participó como investigador en proyectos de diversas universidades de Argentina
                     <h3 class="card-title">Rodrigo Kataishi, Ph.D. in Economics </h3>
                 </div>
                 <div id="docenteBio" class="card-description docente-bio collapsed" style="white-space: pre-line;">
-Licienciado en Economía Industrial (UNGS, Argentina) y Doctor en Economía (Ph.D. in Economics, Università di Torino, Italia). Actualmente se desempeña como Investigador Adjunto del CONICET y Profesor Asociado en la Universidad Nacional de Tierra del Fuego, en el Instituto de Desarrollo Económico e Innovación. Fue coordinador de la Licenciatura en Economía de la UNTDF y del área de Investigación, Vinculación y Extensión del IDEI-UNTDF. Se desempeña como Coordinador Académico del Doctorado Interinstitucional en Cs. Económicas para la Sede UNTDF. Dicta cursos de grado, maestría y doctorado en distintas universidades de Argentina y América Latina. A nivel internacional, ha investigado para la CEPAL (Naciones Unidas) y participado en proyectos financiados por el VII Programa Marco de la Unión Europea, IDRC, la Fundación Carolina y FLACSO, entre otros. En Argentina, colaboró con organismos como el MTSSE, el MINCYT, el MPE. Fue consultor del CIECTI-MINCYT, evaluador nacional de proyectos de investigación (en diversas universidades nacionales, en FONCYT-PICT, Agencia I+D+i y CONICET) y revisor externo en revistas académicas de prestigio. 
+Licienciado en Economía Industrial (UNGS, Argentina) y Doctor en Economía (Ph.D. in Economics, Università di Torino, Italia). Actualmente se desempeña como Investigador Adjunto del CONICET y Profesor Asociado en la Universidad Nacional de Tierra del Fuego, en el Instituto de Desarrollo Económico e Innovación. Fue coordinador de la Licenciatura en Economía de la UNTDF y del área de Investigación, Vinculación y Extensión del IDEI-UNTDF. Se desempeña como Coordinador Académico del Doctorado Interinstitucional en Cs. Económicas para la Sede UNTDF. Dicta cursos de grado, maestría y doctorado en distintas universidades de Argentina y América Latina. 
+
+A nivel internacional, ha investigado para la CEPAL (Naciones Unidas) y participado en proyectos financiados por el VII Programa Marco de la Unión Europea, IDRC, la Fundación Carolina y FLACSO, entre otros. En Argentina, colaboró con organismos como el MTSSE, el MINCYT, el MPE. Fue consultor del CIECTI-MINCYT, evaluador nacional de proyectos de investigación (en diversas universidades nacionales, en FONCYT-PICT, Agencia I+D+i y CONICET) y revisor externo en revistas académicas de prestigio. 
 
 A nivel técnico, su perfil combina un claro interés empírico y metodológico. Se especializó en la coordinación y dirección de trabajos de campo cuantitativos y cualitativos en Argentina e Italia, en proyectos nacionales y multilaterales de alta escala (+250 casos), así como en campañas exploratorias de baja escala (-50 casos) en locaciones, segmentos y realidades específicas del país. Metodológicamente, su perfil combina un intenso uso de herramientas cualitativas (diseño e implementación de técnicas de análisis computacionales mediante NLP) y cuantitativas (econometría y técnicas avanzadas de Machine Learning). Sus áreas de trabajo se inscriben en la economía del desarrollo, con énfasis en las competencias empresariales, la innovación en la periferia y el papel de los sistemas de ciencia y tecnología en diferentes espacios territoriales. Entre los ejes específicos de su investigación reciente, se encuentran el cambio estructural y la diversificación productiva en Argentina, la Patagonia y Tierra del Fuego, las condiciones y prácticas de producción y organización en las empresas que operan en contextos periféricos y las relaciones entre éstas y los fenómenos del cambio técnico global. Durante la última década ha estudiado sectores como la industria electrónica, el sector TICs y software, los hidrocarburos, el turismo, la industria automotriz y la emergencia de nuevos sectores en la Patagonia Sur.
 
+Participó como investigador en proyectos de diversas universidades de Argentina y América Latina, la CEPAL, la Unión Europea, IDRC, Fundación Carolina y FLACSO, entre otros. Colaboró con organismos públicos como el MINCYT, el MTSSE y el MPE. Ha sido evaluador de proyectos nacionales (Agencia, FONCYT, PICT, entre otros), de proyectos y programas en Universidades Nacionales, y participó como especialista en la evaluación de ingresos a carrera en CONICET, así como en diversas Comisiones de Evaluación de Becas Doctorales y Posdoctorales de la misma institución. A nivel temático, su trabajo se orienta al análisis estructural de sistemas de innovación, capacidades tecnológicas y procesos de cambio técnico. Desde una perspectiva sectorial, ha trabajado y publicado acerca de los sectores metalmecánico, electrónico, software, TICs, pesca, turismo y automotriz, entre otros.
                 </div>
                 <div class="docente-toggle" onclick="toggleDocenteBio()">Ver más</div>
             </div>
