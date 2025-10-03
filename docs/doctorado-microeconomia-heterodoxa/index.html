@@ -501,6 +501,12 @@
         .top-logos {
             /* removed: migrated logos into nav */
         }
+        /* <-- ensure horizontal alignment of nav logos */
+        .nav-logos {
+            display: flex; /* <-- */
+            align-items: center;
+            gap: 0.75rem;
+        }
         .nav-logos img {
             height: 32px; /* <-- smaller height for nav */
             max-width: 140px;
