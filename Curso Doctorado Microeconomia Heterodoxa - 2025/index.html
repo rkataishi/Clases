@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microeconomía Heterodoxa - Doctorado en Ciencias Económicas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #2c3e50;
+            --primary-light: #34495e;
+            --secondary: #7f8c8d;
+            --accent: #3498db;
+            --background: #ffffff;
+            --surface: #f8f9fa;
+            --border: #e9ecef;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --error: #e74c3c;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --radius: 0.5rem;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        /* Header */
+        header {
+            background: var(--primary);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-md);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        .course-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        /* Section Styles */
+        section {
+            margin-bottom: 3rem;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        /* Cards */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+        }
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .card-badge {
+            background: var(--secondary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .card-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .grid-cols-1 { grid-template-columns: 1fr; }
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        /* Materials Section */
+        .material-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .material-item:hover {
+            background: white;
+            box-shadow: var(--shadow-md);
+        }
+        .material-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius);
+            font-size: 1.25rem;
+        }
+        .material-info {
+            flex: 1;
+        }
+        .material-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .material-meta {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        .tab:hover {
+            color: var(--text-primary);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        /* Buttons */
+        .btn {
+            padding: 0.625rem 1.25rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover {
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.375rem;
+            top: 0.25rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid white;
+            box-shadow: var(--shadow-sm);
+        }
+        .timeline-date {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+        .timeline-content {
+            background: var(--surface);
+            padding: 1rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .grid-cols-2,
+            .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            .course-info {
+                gap: 1.5rem;
+            }
+        }
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--border);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transform: translateX(400px);
+            transition: transform 0.3s;
+            z-index: 2000;
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+        .notification.success {
+            border-left: 4px solid var(--success);
+        }
+        .notification.error {
+            border-left: 4px solid var(--error);
+        }
+        .notification.info {
+            border-left: 4px solid var(--primary);
+        }
+        /* Top Logos Bar */
+        .top-logos {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .top-logos img {
+            height: 48px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        /* Hero gray override */
+        .hero {
+            background: var(--secondary);
+        }
+        /* Glass/blur header */
+        header {
+            background: transparent;
+        }
+        nav {
+            background: rgba(44, 62, 80, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+    /* Palette override: grayscale per capture */
+:root {
+  --background: #f5f6f7; /* light background */
+  --surface: #f2f3f5;   /* card surface */
+  --border: #d9dee3;    /* subtle borders */
+  --text-primary: #2f2f2f; /* main text */
+  --text-secondary: #6b7280; /* muted text */
+  --secondary: #9aa3a8; /* accent gray */
+}
+
+/* Docente expander styles */
+.docente-card { display: grid; grid-template-columns: 140px 1fr; gap: 1rem; align-items: start; }
+.docente-photo { width: 140px; height: 140px; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
+.docente-bio { line-height: 1.6; }
+.docente-bio.collapsed { display: -webkit-box; -webkit-line-clamp: 10; -webkit-box-orient: vertical; overflow: hidden; position: relative; }
+.docente-bio.expanded { max-height: calc(1.6em * 10); overflow-y: auto; padding-right: 0.5rem; }
+.docente-toggle { color: var(--primary); cursor: pointer; user-select: none; font-weight: 600; margin-top: 0.5rem; }
+
+/* Docente section dark gray override */
+#docente { background: #666; padding: 2rem 0; color: #fff; }
+#docente .section-title { color: #fff; }
+#docente .card { background: transparent; border: 1px solid rgba(255, 255, 255, 0.25); }
+#docente .card-title { color: #fff; }
+#docente .card-description { color: #fff; }
+#docente .docente-toggle { color: #fff; }
+#docente .docente-photo { border-color: rgba(255, 255, 255, 0.35); }
+
+/* Docente bio animation override */
+#docente .docente-bio { overflow: hidden; transition: max-height 0.4s ease; }
+#docente .docente-bio.collapsed { display: block; max-height: calc(1.6em * 10); -webkit-line-clamp: unset; -webkit-box-orient: unset; }
+#docente .docente-bio.expanded { max-height: 1000px; }
+
+/* Hero dark gray stronger override */
+.hero { background: #2b2b2b; }
+.hero .hero-content { color: #fff; }
+.hero .hero-content h1, .hero .hero-content .subtitle { color: #fff; }
+.hero .course-info .info-item i, .hero .course-info .info-item span { color: #fff; }
+
+</style>
+</head>
+<body>
+    <!-- Top Logos -->
+    <div class="top-logos">
+        <img src="http://www.untdf.edu.ar/uploads/logo_untdf_1563196377.png" alt="Logo UNTDF"> <!-- <-- -->
+        <img src="https://www.untdf.edu.ar/uploads/noticias/universidad_publica_argentina_ok_1712763862.jpg" alt="Logo Universidad Pública Argentina"> <!-- <-- -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEd6KciGJSSvPxoN8lNJns72XdNI_KFzeRqw&s" alt="Logo CONICET"> <!-- <-- -->
+    </div>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                
+                <span> </span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#informacion">Información</a></li>
+                <li><a href="#materiales">Materiales</a></li>
+                <li><a href="#publicaciones">Publicaciones</a></li>
+                <li><a href="#calendario">Calendario</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Microeconomía Heterodoxa</h1>
+            <p class="subtitle">Doctorado Interinstitucional en Ciencias Económicas - Sede UNTDF - Año 2025</p>
+            <div class="course-info">
+                <div class="info-item">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Dr. Rodrigo Kataishi</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Martes 16:00-22:00</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>UNTDF - Modalidad Híbrida</span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Link de Conexión a la clase: a definir próximamente</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main Content -->
+    <main>
+        <!-- Course Information -->
+        <section id="informacion">
+            <div class="section-header">
+                <h2 class="section-title">Información del Curso</h2>
+                <button class="btn btn-primary" onclick="showSyllabus()">
+                    <i class="fas fa-file-alt"></i>
+                    Ver Programa Completo
+                </button>
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Fundamentación</h3>
+                    </div>
+                    <p class="card-description">
+                        El objetivo de este seminario denominado Microeconomía Heterodoxa es contribuir al pensamiento crítico en las ciencias económicas y sociales, a través de la presentación y profundización del debate entre diversas corrientes y tradiciones de pensamiento de la conceptualización en economía. La propuesta central se articula en dos ejes: una revisión crítica de los cimientos ontológicos y supuestos de la teoría neoclásica, y un recorrido sobre diversas corrientes clave del pensamiento heterodoxo que proponen visiones e interpretaciones alternativas. En esa selección, se presta especial atención a cómo las condiciones y características del subdesarrollo desatan desafíos y miradas específicas. 
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Objetivos</h3>
+                    </div>
+                    <ul class="card-description">
+                        <li>Diferenciar los fundamentos meta-teóricos, ontológicos y epistemológicos presentes en argumentaciones y teorizaciones más relevantes de la actualidad en  las ciencias económicas</li>
+                        <li>Evaluar críticamente el constructo teórico propuesto desde la microeconomía neoclásica, a propósito de su insuficiencia para resolver restricciones recurrentes, y explicar situaciones usuales en la economía</li>
+                        <li>Desplegar enfoques heterodoxos y, mediante ellos, analizar a las empresas como  organizaciones complejas, elaborando distintos enfoques y corrientes dentro de la heterodoxia</li>
+                        <li>Vincular la teoría microeconómica con los problemas del desarrollo y con la realidad empírica</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Docente Section -->
+        <section id="docente-old" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title">Docente responsable</h2>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Rodrigo Kataishi</h3>
+                </div>
+                <div class="card-description" style="white-space: pre-line;">
+Rodrigo Kataishi es Licienciado en Economía Industrial (UNGS, Argentina) y Doctor en Economía (Ph.D. in Economics, Università di Torino, Italia). Actualmente se desempeña como Investigador Adjunto del CONICET y Profesor Asociado en la Universidad Nacional de Tierra del Fuego, en el Instituto de Desarrollo Económico e Innovación. Fue coordinador de la Licenciatura en Economía de la UNTDF y del área de Investigación, Vinculación y Extensión del IDEI-UNTDF. Se desempeña como Coordinador Académico del Doctorado Interinstitucional en Cs. Económicas para la Sede UNTDF. Dicta cursos de grado, maestría y doctorado en distintas universidades de Argentina y América Latina. 
+
+A nivel internacional, ha investigado para la CEPAL (Naciones Unidas) y participado en proyectos financiados por el VII Programa Marco de la Unión Europea, IDRC, la Fundación Carolina y FLACSO, entre otros. En Argentina, colaboró con organismos como el MTSSE, el MINCYT, el MPE. Fue consultor del CIECTI-MINCYT, evaluador nacional de proyectos de investigación (en diversas universidades nacionales, en FONCYT-PICT, Agencia I+D+i y CONICET) y revisor externo en revistas académicas de prestigio. A nivel técnico, su perfil combina un claro interés empírico y metodológico. Se especializó en la coordinación y dirección de trabajos de campo cuantitativos y cualitativos en Argentina e Italia, en proyectos nacionales y multilaterales de alta escala (+250 casos), así como en campañas exploratorias de baja escala (-50 casos) en locaciones, segmentos y realidades específicas del país. Metodológicamente, su perfil combina un intenso uso de herramientas cualitativas (diseño e implementación de técnicas de análisis computacionales mediante NLP) y cuantitativas (econometría y técnicas avanzadas de Machine Learning). Sus áreas de trabajo se inscriben en la economía del desarrollo, con énfasis en las competencias empresariales, la innovación en la periferia y el papel de los sistemas de ciencia y tecnología en diferentes espacios territoriales. Entre los ejes específicos de su investigación reciente, se encuentran el cambio estructural y la diversificación productiva en Argentina, la Patagonia y Tierra del Fuego, las condiciones y prácticas de producción y organización en las empresas que operan en contextos periféricos y las relaciones entre éstas con los fenómenos del cambio técnico global. Durante la última década ha estudiado sectores como la industria electrónica, el sector TICs y software, los hidrocarburos, el turismo, la industria automotriz y la emergencia de nuevos sectores.
+
+Participó como investigador en proyectos de diversas universidades de Argentina y América Latina, la CEPAL, la Unión Europea, IDRC, Fundación Carolina y FLACSO, entre otros. Colaboró con organismos públicos como el MINCYT, el MTSSE y el MPE. Ha sido evaluador de proyectos nacionales (Agencia, FONCYT, PICT, entre otros), de proyectos y programas en Universidades Nacionales, y participó como especialista en la evaluación de ingresos a carrera en CONICET, así como en diversas Comisiones de Evaluación de Becas Doctorales y Posdoctorales de la misma institución. A nivel temático, su trabajo se orienta al análisis estructural de sistemas de innovación, capacidades tecnológicas y procesos de cambio técnico. Desde una perspectiva sectorial, ha trabajado y publicado acerca de los sectores metalmecánico, electrónico, software, TICs, pesca, turismo y automotriz, entre otros.
+                </div>
+            </div>
+        </section>
+        <!-- Materials Section -->
+        <section id="materiales">
+            <div class="section-header">
+                <h2 class="section-title">Materiales del Curso</h2>
+            </div>
+            <div class="card" style="margin-bottom: 1rem;">
+                <div class="card-header">
+                    <h3 class="card-title">Secciones del curso</h3>
+                </div>
+                <ul class="card-description">
+                    <li><strong>Unidad 1: Historia y Metodología de la Economía</strong> — Introducción a la genealogía del saber económico, fundamentos meta-teóricos, ontológicos y epistemológicos; aproximación a corrientes heterodoxas y crítica a supuestos convencionales.</li>
+                    <li><strong>Unidad 2: Microeconomía: Una Revisión Crítica</strong> — Cuestionamiento de supuestos de racionalidad, equilibrio y mercados perfectos; información asimétrica, complejidad, no linealidad y enfoques alternativos.</li>
+                    <li><strong>Unidad 3: Teoría de la Empresa</strong> — La empresa como organización compleja: capacidades, aprendizaje, innovación, trayectorias y rutinas; enfoques evolucionistas e institucionales.</li>
+                    <li><strong>Unidad 4: Producción, Productividad y Desarrollo</strong> — Relación entre organización productiva, productividad y desarrollo; estados, políticas y periferias; estrategias de industrialización y cambio estructural.</li>
+                </ul>
+            </div>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(event, 'unidad1')">Unidad 1</button>
+                <button class="tab" onclick="switchTab(event, 'unidad2')">Unidad 2</button>
+                <button class="tab" onclick="switchTab(event, 'unidad3')">Unidad 3</button>
+                <button class="tab" onclick="switchTab(event, 'unidad4')">Unidad 4</button>
+            </div>
+            <div id="unidad1" class="tab-content active">
+                <h3 style="margin: 1.5rem 0 1rem 0;">Presentaciones</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad1-pres1')">
+                    <div class="material-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Historia y Metodología de la Economía</div>
+                        <div class="material-meta">PDF • 45 slides • Actualizado: 05/08/2025</div>
+                    </div>
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3 style="margin: 1.5rem 0 1rem 0;">Lecturas</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad1-read1')">
+                    <div class="material-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Carranza Barona, C. (2020). Genealogía del saber económico</div>
+                        <div class="material-meta">FLACSO Ecuador</div>
+                    </div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="material-item" onclick="downloadMaterial('unidad1-read2')">
+                    <div class="material-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Lavoie, M. (2005). ¿Las teorías heterodoxas tienen algo en común?</div>
+                        <div class="material-meta">Lecturas de Economía</div>
+                    </div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="material-item" onclick="downloadMaterial('unidad1-read3')">
+                    <div class="material-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">McCloskey, D. N. (1990). La retórica de la economía</div>
+                        <div class="material-meta">Alianza Editorial</div>
+                    </div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <h3 style="margin: 1.5rem 0 1rem 0;">Ejercicios</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad1-ex1')">
+                    <div class="material-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Análisis de Ontologías en Teoría Económica</div>
+                        <div class="material-meta">Entrega: 21/10/2025 • 20 puntos</div>
+                    </div>
+                    <i class="fas fa-download"></i>
+                </div>
+            </div>
+            <div id="unidad2" class="tab-content">
+                <h3 style="margin: 1.5rem 0 1rem 0;">Presentaciones</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad2-pres1')">
+                    <div class="material-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Microeconomía: Una Revisión Crítica</div>
+                        <div class="material-meta">PDF • 62 slides • Actualizado: 12/08/2025</div>
+                    </div>
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3 style="margin: 1.5rem 0 1rem 0;">Lecturas</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad2-read1')">
+                    <div class="material-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Akerlof, G. A. (1970). The Market for "Lemons"</div>
+                        <div class="material-meta">Quarterly Journal of Economics</div>
+                    </div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="material-item" onclick="downloadMaterial('unidad2-read2')">
+                    <div class="material-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Chen, P. (2008). Equilibrium Illusion, Economic Complexity</div>
+                        <div class="material-meta">Evolutionary and Institutional Economics Review</div>
+                    </div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <h3 style="margin: 1.5rem 0 1rem 0;">Ejercicios</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad2-ex1')">
+                    <div class="material-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Crítica a la Teoría del Equilibrio General</div>
+                        <div class="material-meta">Entrega: 28/10/2025 • 25 puntos</div>
+                    </div>
+                    <i class="fas fa-download"></i>
+                </div>
+            </div>
+            <div id="unidad3" class="tab-content">
+                <h3 style="margin: 1.5rem 0 1rem 0;">Presentaciones</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad3-pres1')">
+                    <div class="material-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Teoría de la Empresa</div>
+                        <div class="material-meta">PDF • 58 slides • Actualizado: 19/08/2025</div>
+                    </div>
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3 style="margin: 1.5rem 0 1rem 0;">Lecturas</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad3-read1')">
+                    <div class="material-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Dosi, G. (1982). Technological paradigms and technological trajectories</div>
+                        <div class="material-meta">Research Policy</div>
+                    </div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="material-item" onclick="downloadMaterial('unidad3-read2')">
+                    <div class="material-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">García Garnica, A. & Taboada Ibarra, E. L. (2012). Teoría de la empresa</div>
+                        <div class="material-meta">Economía: teoría y práctica</div>
+                    </div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <h3 style="margin: 1.5rem 0 1rem 0;">Ejercicios</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad3-ex1')">
+                    <div class="material-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Análisis de la Empresa como Organización Compleja</div>
+                        <div class="material-meta">Entrega: 04/11/2025 • 30 puntos</div>
+                    </div>
+                    <i class="fas fa-download"></i>
+                </div>
+            </div>
+            <div id="unidad4" class="tab-content">
+                <h3 style="margin: 1.5rem 0 1rem 0;">Presentaciones</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad4-pres1')">
+                    <div class="material-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Producción, Productividad y Desarrollo</div>
+                        <div class="material-meta">PDF • 65 slides • Actualizado: 26/08/2025</div>
+                    </div>
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3 style="margin: 1.5rem 0 1rem 0;">Lecturas</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad4-read1')">
+                    <div class="material-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Amsden, A. H. (1989). Asia's Next Giant: South Korea and Late Industrialization</div>
+                        <div class="material-meta">Oxford University Press</div>
+                    </div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="material-item" onclick="downloadMaterial('unidad4-read2')">
+                    <div class="material-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Chang, H. J. (2003). Kicking away the ladder</div>
+                        <div class="material-meta">Oxford Development Studies</div>
+                    </div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <h3 style="margin: 1.5rem 0 1rem 0;">Ejercicios</h3>
+                <div class="material-item" onclick="downloadMaterial('unidad4-ex1')">
+                    <div class="material-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="material-info">
+                        <div class="material-title">Desarrollo y Subdesarrollo en Perspectiva Heterodoxa</div>
+                        <div class="material-meta">Entrega: 18/11/2025 • 40 puntos</div>
+                    </div>
+                    <i class="fas fa-download"></i>
+                </div>
+            </div>
+        </section>
+        <!-- Publications Section -->
+        <section id="publicaciones">
+            <div class="section-header">
+                <h2 class="section-title">Publicaciones Recientes</h2>
+            </div>
+            <div class="grid grid-cols-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Realidad versus Ontología Económica</h3>
+                        <span class="card-badge">2025</span>
+                    </div>
+                    <p class="card-description">
+                        Distinciones clave y desafíos teóricos en la crítica a la microeconomía neoclásica.
+                    </p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <span style="background: var(--surface); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Ontología</span>
+                        <span style="background: var(--surface); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Metodología</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Desentrañando los supuestos de la teoría neoclásica</h3>
+                        <span class="card-badge">2025</span>
+                    </div>
+                    <p class="card-description">
+                        Una revisión crítica de los fundamentos de la microeconomía ortodoxa y sus implicancias.
+                    </p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <span style="background: var(--surface); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Neoclasicismo</span>
+                        <span style="background: var(--surface); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Crítica</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Entre lo exógeno y lo exótico</h3>
+                        <span class="card-badge">2023</span>
+                    </div>
+                    <p class="card-description">
+                        Las periferias, los supuestos económicos sobre Ciencia, Tecnología e Innovación y sus implicancias para el desarrollo tecno-productivo.
+                    </p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <span style="background: var(--surface); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Periferias</span>
+                        <span style="background: var(--surface); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Desarrollo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Calendar Section -->
+        <section id="calendario">
+            <div class="section-header">
+                <h2 class="section-title">Calendario Académico</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">7 de Octubre, 2025</div>
+                    <div class="timeline-content">
+                        <strong>Inicio del Curso</strong>
+                        <p>Sesión introductoria y presentación del programa</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">14 de Octubre, 2025</div>
+                    <div class="timeline-content">
+                        <strong>Unidad 1: Historia y Metodología de la Economía</strong>
+                        <p>Presentaciones y discusión de lecturas</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">21 de Octubre, 2025</div>
+                    <div class="timeline-content">
+                        <strong>Entrega Tarea 1</strong>
+                        <p>Análisis de Ontologías en Teoría Económica - Deadline 23:59</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">28 de Octubre, 2025</div>
+                    <div class="timeline-content">
+                        <strong>Unidad 2: Microeconomía: Una Revisión Crítica</strong>
+                        <p>Presentaciones y discusión de lecturas</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">4 de Noviembre, 2025</div>
+                    <div class="timeline-content">
+                        <strong>Entrega Tarea 2</strong>
+                        <p>Crítica a la Teoría del Equilibrio General</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">11 de Noviembre, 2025</div>
+                    <div class="timeline-content">
+                        <strong>Unidad 3: Teoría de la Empresa</strong>
+                        <p>Presentaciones y discusión de lecturas</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">18 de Noviembre, 2025</div>
+                    <div class="timeline-content">
+                        <strong>Entrega Proyecto Final</strong>
+                        <p>Desarrollo y Subdesarrollo en Perspectiva Heterodoxa</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Additional Resources Section -->
+        <section id="recursos">
+            <div class="section-header">
+                <h2 class="section-title">Recursos Adicionales</h2>
+            </div>
+            <div class="grid grid-cols-3">
+                <div class="card" onclick="showResourcePopup()">
+                    <div class="card-header">
+                        <h3 class="card-title">Tutoriales de Python</h3>
+                    </div>
+                    <p class="card-description">
+                        Recursos interactivos para mejorar tus habilidades en Python y análisis económico.
+                    </p>
+                </div>
+                <div class="card" onclick="showResourcePopup()">
+                    <div class="card-header">
+                        <h3 class="card-title">Bases de Datos Públicas</h3>
+                    </div>
+                    <p class="card-description">
+                        Acceso a datasets públicos para prácticas y proyectos de análisis económico.
+                    </p>
+                </div>
+                <div class="card" onclick="showResourcePopup()">
+                    <div class="card-header">
+                        <h3 class="card-title">Herramientas de Visualización</h3>
+                    </div>
+                    <p class="card-description">
+                        Recomendaciones de herramientas para visualización de datos y resultados.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Docente Section (moved to bottom) -->
+    <section id="docente" style="margin-top: 2rem;">
+        <div class="section-header">
+            <h2 class="section-title">Docente responsable</h2>
+        </div>
+        <div class="card docente-card">
+            <img class="docente-photo" src="rodrigo_kataishi.jpeg" alt="Foto de Rodrigo Kataishi">
+            <div>
+                <div class="card-header">
+                    <h3 class="card-title">Rodrigo Kataishi, Ph.D. in Economics </h3>
+                </div>
+                <div id="docenteBio" class="card-description docente-bio collapsed" style="white-space: pre-line;">
+Licienciado en Economía Industrial (UNGS, Argentina) y Doctor en Economía (Ph.D. in Economics, Università di Torino, Italia). Actualmente se desempeña como Investigador Adjunto del CONICET y Profesor Asociado en la Universidad Nacional de Tierra del Fuego, en el Instituto de Desarrollo Económico e Innovación. Fue coordinador de la Licenciatura en Economía de la UNTDF y del área de Investigación, Vinculación y Extensión del IDEI-UNTDF. Se desempeña como Coordinador Académico del Doctorado Interinstitucional en Cs. Económicas para la Sede UNTDF. Dicta cursos de grado, maestría y doctorado en distintas universidades de Argentina y América Latina. A nivel internacional, ha investigado para la CEPAL (Naciones Unidas) y participado en proyectos financiados por el VII Programa Marco de la Unión Europea, IDRC, la Fundación Carolina y FLACSO, entre otros. En Argentina, colaboró con organismos como el MTSSE, el MINCYT, el MPE. Fue consultor del CIECTI-MINCYT, evaluador nacional de proyectos de investigación (en diversas universidades nacionales, en FONCYT-PICT, Agencia I+D+i y CONICET) y revisor externo en revistas académicas de prestigio. 
+
+A nivel técnico, su perfil combina un claro interés empírico y metodológico. Se especializó en la coordinación y dirección de trabajos de campo cuantitativos y cualitativos en Argentina e Italia, en proyectos nacionales y multilaterales de alta escala (+250 casos), así como en campañas exploratorias de baja escala (-50 casos) en locaciones, segmentos y realidades específicas del país. Metodológicamente, su perfil combina un intenso uso de herramientas cualitativas (diseño e implementación de técnicas de análisis computacionales mediante NLP) y cuantitativas (econometría y técnicas avanzadas de Machine Learning). Sus áreas de trabajo se inscriben en la economía del desarrollo, con énfasis en las competencias empresariales, la innovación en la periferia y el papel de los sistemas de ciencia y tecnología en diferentes espacios territoriales. Entre los ejes específicos de su investigación reciente, se encuentran el cambio estructural y la diversificación productiva en Argentina, la Patagonia y Tierra del Fuego, las condiciones y prácticas de producción y organización en las empresas que operan en contextos periféricos y las relaciones entre éstas y los fenómenos del cambio técnico global. Durante la última década ha estudiado sectores como la industria electrónica, el sector TICs y software, los hidrocarburos, el turismo, la industria automotriz y la emergencia de nuevos sectores en la Patagonia Sur.
+
+                </div>
+                <div class="docente-toggle" onclick="toggleDocenteBio()">Ver más</div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> rkataishi@untdf.edu.ar</li>
+                    <li><i class="fas fa-map-marker-alt"></i> CONICET - Universidad Nacional de Tierra del Fuego</li>
+                </ul>
+            </div>
+         
+        <div class="footer-bottom">
+            <p>&copy; 2025 Doctorado Interinstitucional en Ciencias Económicas - Sede UNTDF. </p>
+        </div>
+    </footer>
+    <!-- Modals -->
+    <div class="modal" id="syllabusModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Programa del Curso</h2>
+                <button class="modal-close" onclick="closeModal('syllabusModal')">&times;</button>
+            </div>
+            <div style="margin: 0 1rem 1rem 1rem;">
+                <a class="btn btn-primary" href="https://www.dropbox.com/scl/fi/bx6hlh8mvuu219c5vipkd/Syllabus-Microeconom-a-Heterodoxa-Doctorado-Kataishi.pdf?rlkey=wfyr15izrg0vb3jfheso8tjjz&st=v5wp7clv&dl=0" target="_blank" rel="noopener">
+                    <i class="fas fa-file-pdf"></i> Ver PDF Completo
+                </a>
+                <p class="card-description" style="margin-top: 0.5rem;">Abre el programa completo en una nueva pestaña.</p>
+            </div>
+            <div style="max-height: 60vh; overflow-y: auto;">
+                <h3 style="margin-top: 1rem;">Contenido Temático</h3>
+                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                    <li>Unidad 1: Historia y Metodología de la Economía (2 semanas)</li>
+                    <li>Unidad 2: Microeconomía: Una Revisión Crítica (3 semanas)</li>
+                    <li>Unidad 3: Teoría de la Empresa (3 semanas)</li>
+                    <li>Unidad 4: Producción, Productividad y Desarrollo (2 semanas)</li>
+                </ul>
+                <h3>Evaluación</h3>
+                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                    <li>Tareas y ejercicios: 40%</li>
+                    <li>Participación en foro: 10%</li>
+                    <li>Proyecto final: 50%</li>
+                </ul>
+                <h3 style="margin-top: 1rem;">Metodología</h3>
+                <p>El seminario adopta un formato de taller activo. Cada encuentro combinará una exposición teórica del docente con un debate intensivo de la bibliografía, liderado por los estudiantes. La dinámica central será la exposición oral obligatoria, donde un estudiante presentará el tema principal y otros dos actuarán como comentaristas.</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="resourcePopup">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Recursos Adicionales</h2>
+                <button class="modal-close" onclick="closeModal('resourcePopup')">&times;</button>
+            </div>
+            <div style="text-align: center; padding: 2rem;">
+                <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: var(--warning); margin-bottom: 1rem;"></i>
+                <h3>Sección en Desarrollo</h3>
+                <p>Los contenidos para esta sección están en proceso de actualización.</p>
+                <p>Por favor, regrese más tarde para acceder a los recursos adicionales.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Profile Section Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Dr. Rodrigo Kataishi</h2>
+                <button class="modal-close" onclick="closeModal('profileModal')">&times;</button>
+            </div>
+            <div style="max-height: 60vh; overflow-y: auto;">
+                <p style="margin-bottom: 1rem;">Dr. Rodrigo Kataishi es Doctor en Economía (Universidad de Torino, Italia) e Investigador Adjunto del CONICET. Desde 2019 participa como miembro del Comité Evaluador de Becas Doctorales, PostDoctorales y de las comisiones especiales de ingreso a carrera CIC del CONICET en el área de Economía. Es Profesor Asociado en la UNTDF, donde coordinó la Licenciatura en Economía y fue Coordinador de Investigación, Vinculación y Extensión del Instituto de Desarrollo Económico e Innovación. Es miembro del Comité Académico del Doctorado Interinstitucional en Ciencias Económicas.</p>
+                
+                <p style="margin-bottom: 1rem;">Dicta materias de grado y posgrado, entre las que se destacan Teoría de la Innovación y Sistemas de Innovación (Maestría en Políticas Públicas para el Desarrollo Territorial), Planificación Estratégica y Formulación de Proyectos (Maestría en Estudios Antárticos), Pensamiento Económico y Social Latinoamericano y Economía Organizacional (Lic. en Economía).</p>
+                
+                <p style="margin-bottom: 1rem;">En los últimos años, ha profundizado en el estudio de los condicionantes del subdesarrollo, con énfasis en patrones de especialización sectorial, la manifestación en el territorio de singularidades de organización, producción y articulación, y la articulación de los sectores productivos con instituciones y políticas de CTI. A nivel metodológico, se ha centrado en el uso de Python y Machine Learning aplicados a econometría, el procesamiento semántico-programático como complemento de la investigación cualitativa y ha propuesto múltiples aproximaciones algorítmicas para el tratamiento de datos empíricos y de big-data.</p>
+                
+                <p style="margin-bottom: 1rem;">Ha dirigido trabajos de campo para CEPAL, BID, FLACSO y MINCYT, entre otros. Ha dirigido, coordinado y participado de más de 40 campañas empíricas de corte cuantitativo y cualitativo. Con ese perfil, actualmente se concentra en el estudio de las estrategias de diversificación productiva, las asimetrías territoriales y los condicionantes del subdesarrollo en y desde la Patagonia Sur.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText">Operación exitosa</span>
+    </div>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+        // Tab switching
+        function switchTab(event, tabName) {
+            // Remove active class from all tabs and contents
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            // Add active class to clicked tab and corresponding content
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+        // Modal functions
+        function showSyllabus() {
+            document.getElementById('syllabusModal').classList.add('active');
+        }
+        function showResourcePopup() {
+            document.getElementById('resourcePopup').classList.add('active');
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+        // Notification system
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            notification.className = 'notification ' + type;
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        // Download material simulation
+        function downloadMaterial(materialId) {
+            showNotification(`Accediendo ${materialId}...`, 'info');
+            setTimeout(() => {
+                showNotification('Material aún no disponible para su descarga o acceso');
+            }, 1500);
+        }
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = 'var(--shadow-lg)';
+            } else {
+                header.style.boxShadow = 'var(--shadow-md)';
+            }
+        });
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation to cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.card, .material-item, .timeline-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(el);
+            });
+        });
+    // Toggle docente bio expander
+function toggleDocenteBio() {
+  const bio = document.getElementById('docenteBio');
+  const toggle = document.querySelector('.docente-toggle');
+  if (!bio || !toggle) return;
+  const lineHeight = 1.6; // debe coincidir con CSS
+  const collapsedMax = lineHeight * 10 + 'em';
+  if (bio.classList.contains('collapsed')) {
+    bio.style.maxHeight = collapsedMax; // <-- inicia desde altura colapsada
+    requestAnimationFrame(() => {
+      bio.classList.remove('collapsed');
+      bio.classList.add('expanded');
+      bio.style.maxHeight = '1000px'; // <-- anima a expandido
+      toggle.textContent = 'Ver menos';
+    });
+  } else {
+    bio.style.maxHeight = bio.scrollHeight + 'px'; // <-- punto de partida
+    requestAnimationFrame(() => {
+      bio.classList.remove('expanded');
+      bio.classList.add('collapsed');
+      bio.style.maxHeight = collapsedMax; // <-- anima a colapsado
+      toggle.textContent = 'Ver más';
+    });
+  }
+}
+
+</script>
+</body>
+</html>
