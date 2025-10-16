@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Plan de Clases - 8 Encuentros</title>
+        <style>
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f9f9f9;
+                padding: 20px;
+                color: #4a5568;
+            }
+
+            .timeline-container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .timeline-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                padding: 15px 0;
+            }
+
+            .timeline-steps {
+                display: flex;
+                position: relative;
+                height: 60px;
+                margin-bottom: 40px;
+            }
+
+            .step {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 15px;
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                font-weight: bold;
+                color: white;
+                transition: all 0.3s ease;
+            }
+
+            /* Flecha que apunta hacia la derecha, ubicada en el borde derecho del cuadrante actual */
+            .step::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: -20px;
+                width: 0;
+                height: 0;
+                border-top: 30px solid transparent;
+                border-bottom: 30px solid transparent;
+                border-left: 20px solid;
+                z-index: -1;
+            }
+
+            .step:first-child::before {
+                border-left: none;
+            }
+
+            .step:last-child::after {
+                border-right: none;
+            }
+
+            .step-1 {
+                background-color: #1a202c;
+            }
+            .step-2 {
+                background-color: #1a202c;
+            }
+            .step-3 {
+                background-color: #2b6cb0;
+            }
+            .step-4 {
+                background-color: #2b6cb0;
+            }
+            .step-5 {
+                background-color: #4a5568;
+            }
+            .step-6 {
+                background-color: #4a5568;
+            }
+            .step-7 {
+                background-color: #718096;
+            }
+            .step-8 {
+                background-color: #718096;
+            }
+
+            /* Ajustar flechas para que sean del color del cuadro izquierdo y estén justo al inicio del siguiente cuadrante */
+            .step-2::after {
+                border-left-color: #1a202c;
+                right: -20px;
+            }
+            .step-4::after {
+                border-left-color: #2b6cb0;
+                right: -20px;
+            }
+            .step-6::after {
+                border-left-color: #4a5568;
+                right: -20px;
+            }
+            .step-8::after {
+                border-left-color: #718096;
+                right: -20px;
+            }
+
+            .topics-container {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 30px;
+            }
+
+            .topic-column {
+                flex: 1;
+                padding: 0 10px;
+                position: relative;
+            }
+
+            .topic-item {
+                position: relative;
+                padding: 15px;
+                margin-bottom: 15px;
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                transition: transform 0.2s ease;
+            }
+
+            .topic-item:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            }
+
+            .topic-item::before {
+                content: "";
+                position: absolute;
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 8px;
+                height: 8px;
+                background-color: #cbd5e0;
+                border-radius: 50%;
+            }
+
+            .topic-item::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 10px;
+                background-color: #cbd5e0;
+            }
+
+            .section-divider {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 0;
+                border-left: 2px dotted #cbd5e0;
+                z-index: 0;
+                opacity: 0.9;
+            }
+
+            .phase-divider {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 0;
+                border-left: 2px dotted #cbd5e0;
+                opacity: 0.9;
+                z-index: 2;
+            }
+
+            .section-label {
+                position: absolute;
+                bottom: -30px;
+                left: 0;
+                right: 0;
+                text-align: center;
+                font-weight: bold;
+                font-size: 14px;
+                color: #4a5568;
+                padding: 5px;
+                background-color: transparent;
+                border-radius: 4px;
+                box-shadow: none;
+                border: none;
+                display: none;
+            }
+
+            .bracket {
+                position: absolute;
+                bottom: -40px;
+                left: 0;
+                right: 0;
+                height: 20px;
+                display: none;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .bracket::before,
+            .bracket::after {
+                content: "";
+                height: 10px;
+                border-left: 2px solid #4a5568;
+                border-bottom: 2px solid #4a5568;
+            }
+
+            .bracket::before {
+                width: 40%;
+                transform: skewX(-45deg) translateY(-5px);
+            }
+            .bracket::after {
+                width: 40%;
+                transform: skewX(45deg) translateY(-5px);
+            }
+
+            .section-title {
+                font-weight: bold;
+                margin-top: 10px;
+                text-align: center;
+                font-size: 16px;
+                color: #2d3748;
+            }
+
+            /* fila de títulos de unidad arriba de la sección de encuentros */
+            .unit-titles {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+            .unit-title {
+                flex: 1;
+                text-align: center;
+                font-weight: bold;
+                font-size: 16px;
+                color: #2d3748;
+                padding: 5px 0;
+            }
+
+            /* etiquetas superiores con puntos y líneas hacia la barra de encuentros */
+            .upper-topics {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                gap: 10px;
+                margin-bottom: 6px;
+            }
+            .upper-topic {
+                flex: 1;
+                text-align: center;
+                font-size: 14px;
+                color: #4a5568;
+                position: relative;
+                padding-bottom: 22px;
+            }
+            .upper-topic::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 18px;
+                background-image: linear-gradient(#cbd5e0 50%, rgba(203,213,224,0) 0%);
+                background-size: 2px 8px;
+                background-repeat: repeat-y;
+                border-radius: 1px;
+            }
+            .upper-topic::before {
+                content: "";
+                position: absolute;
+                bottom: 18px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 10px;
+                height: 10px;
+                background-color: #edf2f7;
+                border: 2px solid #a0aec0;
+                border-radius: 50%;
+            }
+
+            @media (max-width: 768px) {
+                .timeline-steps {
+                    height: 80px;
+                }
+                .step {
+                    padding: 10px 5px;
+                    font-size: 14px;
+                }
+                .topics-container {
+                    flex-direction: column;
+                }
+                .topic-column {
+                    margin-bottom: 20px;
+                }
+                .unit-titles {
+                    flex-direction: column;
+                    gap: 4px;
+                }
+                .upper-topics {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 8px;
+                }
+                .upper-topic {
+                    padding-bottom: 12px;
+                }
+                .upper-topic::after {
+                    height: 12px;
+                }
+                .upper-topic::before {
+                    bottom: 12px;
+                }
+            }
+            .bracket { display: none !important; }
+            .upper-topic::before { display: none !important; }
+        </style>
+    </head>
+    <body>
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <h2>Plan de Clases — 8 Encuentros</h2>
+            </div>
+
+            <div class="unit-titles">
+                <div class="unit-title">1. Historia y Metodología de la economía</div>
+                <div class="unit-title">2. Microeconomía: Una revisión sucinta</div>
+                <div class="unit-title">3. Teorías de la empresa</div>
+                <div class="unit-title">4. Producción y costos: Ortodoxia y Heterodoxia</div>
+            </div>
+
+            <div class="upper-topics">
+                <div class="upper-topic">Introducción y ontologías</div>
+                <div class="upper-topic">Epistemologías y métodos</div>
+                <div class="upper-topic">Mecanismos y estructuras económicas</div>
+                <div class="upper-topic">Teoría de la empresa</div>
+                <div class="upper-topic">Aplicaciones</div>
+                <div class="upper-topic">Productividad</div>
+            </div>
+
+            <div class="timeline-steps">
+                <div class="step step-1">Encuentro 1</div>
+                <div class="step step-2">Encuentro 2</div>
+                <div class="phase-divider" style="left: 25%;"></div>
+                <div class="step step-3">Encuentro 3</div>
+                <div class="step step-4">Encuentro 4</div>
+                <div class="phase-divider" style="left: 50%;"></div>
+                <div class="step step-5">Encuentro 5</div>
+                <div class="step step-6">Encuentro 6</div>
+                <div class="phase-divider" style="left: 75%;"></div>
+                <div class="step step-7">Encuentro 7</div>
+                <div class="step step-8">Encuentro 8</div>
+            </div>
+
+            <div class="topics-container">
+                <!-- Bloque 1 (Encuentros 1-2) — Unidad 1 -->
+                <div class="topic-column">
+                    <div class="topic-item">
+                        Ontologías y fundamentos históricos
+                    </div>
+                    <div class="topic-item">Disputas epistemológicas</div>
+                    <div class="topic-item">Métodos en la práctica</div>
+                    <div class="topic-item">Debate ortodoxia/heterodoxia</div>
+                    <div class="topic-item">Ortodoxia y Heterodoxia</div>
+                    <div class="section-label">
+                        1. Historia y Metodología de la Economía
+                    </div>
+                    <div class="bracket"></div>
+                </div>
+
+                <!-- Bloque 2 (Encuentros 3-4) — Unidad 2 -->
+                <div class="topic-column">
+                    <div class="topic-item">
+                        Teoría del agente y del mercado
+                    </div>
+                    <div class="topic-item">
+                        Estructura del sistema económico
+                    </div>
+                    <div class="topic-item">
+                        Equilibrio, desequilibrio y renta
+                    </div>
+                    <div class="topic-item">Meso-economía y agregación</div>
+                    <div class="topic-item">Agentes neoclásicos y heterodoxos</div>
+                    <div class="topic-item">Equilibrio, desequilibrio y beneficios</div>
+                    <div class="section-label">
+                        2. Microeconomía: Una Revisión Crítica
+                    </div>
+                    <div class="bracket"></div>
+                </div>
+
+                <!-- Bloque 3 (Encuentros 5-6) — Unidad 3 -->
+                <div class="topic-column">
+                    <div class="topic-item">
+                        Naturaleza y límites de la firma
+                    </div>
+                    <div class="topic-item">
+                        Costos de transacción y racionalidad limitada
+                    </div>
+                    <div class="topic-item">Capacidades y conocimiento</div>
+                    <div class="topic-item">Dinámica evolutiva y contexto</div>
+                    <div class="topic-item">Teorías heterodoxas y empresa</div>
+                    <div class="section-label">3. Teoría de la Empresa</div>
+                    <div class="bracket"></div>
+                </div>
+
+                <!-- Bloque 4 (Encuentros 7-8) — Unidad 4 -->
+                <div class="topic-column">
+                    <div class="topic-item">Producción y competitividad</div>
+                    <div class="topic-item">
+                        Productividad total de los factores (TFP)
+                    </div>
+                    <div class="topic-item">Estrategias de desarrollo</div>
+                    <div class="topic-item">Persistencia del subdesarrollo</div>
+                    <div class="topic-item">Producción y costos neoclásicos</div>
+                    <div class="topic-item">Implicancias para el desarrollo</div>
+                    <div class="section-label">
+                        4. Producción, Productividad y Desarrollo
+                    </div>
+                    <div class="bracket"></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Divisores verticales entre bloques
+            document.addEventListener("DOMContentLoaded", function () {
+                const topicColumns = document.querySelectorAll(".topic-column");
+                const timelineSteps = document.querySelectorAll(".step");
+                for (let i = 0; i < topicColumns.length - 1; i++) {
+                    const divider = document.createElement("div");
+                    divider.className = "section-divider";
+                    topicColumns[i].appendChild(divider);
+                }
+                // Hover en los pasos
+                timelineSteps.forEach((step) => {
+                    step.addEventListener("mouseenter", () => {
+                        step.style.transform = "scale(1.05)";
+                        step.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+                    });
+                    step.addEventListener("mouseleave", () => {
+                        step.style.transform = "scale(1)";
+                        step.style.boxShadow = "none";
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
