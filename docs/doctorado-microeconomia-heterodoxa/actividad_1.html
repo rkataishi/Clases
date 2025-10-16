@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            Bibliografía — Microeconomía Heterodoxa (Selección de exposiciones)
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            :root {
+                --bg: #0b0c10;
+                --card: #111317;
+                --muted: #d1d5db;
+                --text: #e5e7eb;
+                --accent: #60a5fa;
+                --border: #1f2937;
+                --accent-2: #34d399;
+                --disabled: #2a2f36;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                height: 100%;
+            }
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--text);
+                font-family:
+                    system-ui,
+                    -apple-system,
+                    Segoe UI,
+                    Roboto,
+                    Ubuntu,
+                    "Helvetica Neue",
+                    Arial,
+                    "Noto Sans",
+                    sans-serif;
+                line-height: 1.6;
+            }
+            header {
+                padding: 28px 20px 10px;
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+            h1 {
+                margin: 0 0 6px;
+                font-size: clamp(22px, 2.6vw, 30px);
+                letter-spacing: 0.2px;
+            }
+            p.sub {
+                margin: 0;
+                color: var(--muted);
+            }
+            main {
+                max-width: 1100px;
+                margin: 18px auto 80px;
+                padding: 0 20px;
+            }
+            .card {
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            }
+            .panel {
+                padding: 18px;
+            }
+            .panel h2 {
+                margin: 0 0 8px;
+                font-size: 18px;
+            }
+            .notice {
+                background: #121824;
+                border-left: 4px solid #3b82f6;
+                padding: 12px 14px;
+                border-radius: 8px;
+                color: #dbeafe;
+                margin: 10px 0 18px;
+            }
+            ul.papers {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+            .paper {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 10px;
+                padding: 14px 16px;
+                border-top: 1px solid var(--border);
+            }
+            .paper:first-child {
+                border-top: none;
+            }
+            .paper h3 {
+                margin: 0 0 4px;
+                font-size: 16px;
+            }
+            .meta {
+                font-size: 12px;
+                color: var(--muted);
+            }
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                border: 1px solid var(--border);
+                background: #0f141a;
+                color: var(--text);
+                padding: 10px 14px;
+                border-radius: 12px;
+                cursor: pointer;
+                text-decoration: none;
+                font-weight: 600;
+                white-space: nowrap;
+            }
+            .btn:hover {
+                background: #131a21;
+            }
+            .btn.primary {
+                border-color: #1f3b66;
+                background: #0c1521;
+            }
+            .btn.primary:hover {
+                background: #0e1a2a;
+            }
+            .btn.disabled {
+                background: var(--disabled);
+                border-color: #3a3f46;
+                color: #9aa3ad;
+                cursor: not-allowed;
+            }
+            .tag {
+                display: inline-block;
+                padding: 2px 8px;
+                border-radius: 999px;
+                background: #0e1726;
+                border: 1px solid #1f2a44;
+                color: #93c5fd;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>
+                Selección de exposiciones — Microeconomía Heterodoxa (no
+                marxista)
+            </h1>
+            <p class="sub">
+                Listado de artículos con acceso directo. Sin gestión de reservas
+                en esta página.
+            </p>
+        </header>
+
+        <main>
+            <section class="card panel">
+                <h2>Consigna</h2>
+                <div class="notice">
+                    Leer el artículo seleccionado y presentar, en
+                    <strong>10–15 minutos</strong>, las
+                    <em>ideas centrales</em>, las <em>inferencias clave</em> y
+                    los <em>supuestos metodológicos</em>. Se recomienda preparar
+                    una presentación de hasta
+                    <strong>6 diapositivas</strong> para compartir, indicando
+                    referencias completas.
+                </div>
+
+                <h2>Textos disponibles</h2>
+                <ul id="paperList" class="papers"></ul>
+            </section>
+        </main>
+
+        <script>
+            const PAPERS = [
+                {
+                    id: "arthur1994",
+                    title: "Arthur (1994) — Increasing Returns and Path Dependence in the Economy",
+                    url: "https://sites.santafe.edu/~wbarthur/Books/IR_Book_Preface.pdf",
+                    source: "PDF",
+                },
+                {
+                    id: "dosi1988",
+                    title: "Dosi (1988) — Sources, Procedures, and Microeconomic Effects of Innovation",
+                    url: "https://inctpped.ie.ufrj.br/spiderweb/pdf_2/Dosi_1_An_evolutionary-theory-of_economic_change..pdf",
+                    source: "PDF",
+                },
+                {
+                    id: "pavitt1984",
+                    title: "Pavitt (1984) — Sectoral Patterns of Technical Change",
+                    url: "https://wuecampus.uni-wuerzburg.de/moodle/pluginfile.php/3763689/mod_resource/content/1/Pavitt-1984-Article-Sector%20patterns%20of%20technical%20change.pdf",
+                    source: "PDF",
+                },
+                {
+                    id: "fagiolo2012",
+                    title: "Fagiolo & Roventini (2012) — Macroeconomic Policy in DSGE and ABM",
+                    url: "https://www.ineteconomics.org/uploads/papers/MacroPolicyDSGEandAgentBasedModels.pdf",
+                    source: "PDF",
+                },
+                {
+                    id: "fagiolo2017",
+                    title: "Fagiolo & Roventini (2017) — DSGE vs Agent-Based Models (revisited)",
+                    url: "https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/ACEVsDSGE.JASSS2017.FagioloRoventini.pdf",
+                    source: "PDF",
+                },
+                {
+                    id: "tesfatsion2006",
+                    title: "Tesfatsion & Judd (2006) — Handbook of Computational Economics, Vol. 2",
+                    url: "https://www.sciencedirect.com/handbook/handbook-of-computational-economics/vol/2/suppl/C",
+                    source: "Página",
+                },
+                {
+                    id: "ostrom1990",
+                    title: "Ostrom (1990) — Governing the Commons",
+                    url: "https://www.burmalibrary.org/docs20/Ostrom-1990-governing_the_commons.pdf",
+                    source: "PDF",
+                },
+                {
+                    id: "north1990",
+                    title: "North (1990) — Institutions, Institutional Change and Economic Performance",
+                    url: "https://epistemh.pbworks.com/f/8.%20Institutions__Institutional_Change_and_Economic_Performance.pdf",
+                    source: "PDF",
+                },
+                {
+                    id: "polanyi1944",
+                    title: "Polanyi (1944) — The Great Transformation",
+                    url: "https://economicsociology.org/wp-content/uploads/2014/12/the-great-transformation-pdf-free.pdf",
+                    source: "PDF",
+                },
+                {
+                    id: "kirman1992",
+                    title: "Kirman (1992) — Whom or What Does the Representative Individual Represent?",
+                    url: "https://www.aeaweb.org/articles?id=10.1257%2Fjep.6.2.117",
+                    source: "Página",
+                },
+
+                {
+                    id: "hodgson1992",
+                    title: "Hodgson (1992) — Veblen and Post-Darwinian Economics",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/6db7179/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/-%20Hodgson%201992%20-veblen-and-postdarwinian-economics-1992.pdf",
+                    source: "GitHub",
+                },
+                {
+                    id: "blitch1983",
+                    title: "Blitch (1983) — Allyn Young on Increasing Returns",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/6db7179/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/-%20blitch1983%20young%20increasing%20returns.pdf",
+                    source: "GitHub",
+                },
+                {
+                    id: "chandra2021",
+                    title: "Chandra & Sandilands (2021) — Kaldor, Increasing Returns and Verdoorn’s Law",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/6db7179/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/-%20chandra%202021%20-%20kaldor%20verdoorn%20increasing%20returns.pdf",
+                    source: "GitHub",
+                },
+                {
+                    id: "chen2008",
+                    title: "Chen (2008) — Equilibrium Illusion, Economic Complexity and Evolutionary Foundation",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/6db7179/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/-%20chen2008%20Equillibrium.pdf",
+                    source: "GitHub",
+                },
+                {
+                    id: "douglas1976",
+                    title: "Douglas (1976) — Production Function",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/6db7179/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/-%20douglas1976%20prod%20function.pdf",
+                    source: "GitHub",
+                },
+                {
+                    id: "langlois1993",
+                    title: "Langlois (1993) — Knight, Risk, Uncertainty, and the Firm",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/6db7179/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/-%20langlois1993%20-%20knight%20risk%20uncertainty%20firm.pdf",
+                    source: "GitHub",
+                },
+                {
+                    id: "marchionatti2003",
+                    title: "Marchionatti (2003) — Knight and the Method of Microeconomics",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/6db7179/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/-%20marchionatti2003%20-%20Knight%20microeconomics%20method.pdf",
+                    source: "GitHub",
+                },
+
+                {
+                    id: "felipe2006",
+                    title: "Felipe & Fisher (2006) — Aggregation Problem",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/4ccafb679da480f4ef6802bbac5420ed67aa7b83/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/%20Felipe%20y%20Fisher%202006%20-%20the%20aggregation%20problem%2030113179006.pdf",
+                    source: "GitHub",
+                },
+                {
+                    id: "nelson1991",
+                    title: "Nelson (1991) — Why Do Firms Differ?",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/4ccafb679da480f4ef6802bbac5420ed67aa7b83/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/%20Nelson%20%281991%29%20why%20firms%20differ.pdf",
+                    source: "GitHub",
+                },
+                {
+                    id: "dugger1979",
+                    title: "Dugger (1979) — Methodological Differences between Institutional and Neoclassical Economics",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/4ccafb679da480f4ef6802bbac5420ed67aa7b83/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/%20dugger1979%20institutional%20economics.pdf",
+                    source: "GitHub",
+                },
+                {
+                    id: "robinson1973",
+                    title: "Robinson (1973) — The Second Crisis of Economic Theory",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/4ccafb679da480f4ef6802bbac5420ed67aa7b83/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/%20joan%20robinson%201973%20-%20Crisis%20economic%20theory.pdf",
+                    source: "GitHub",
+                },
+                {
+                    id: "king1987",
+                    title: "King, Plosser & Rebelo (1987) — Production, Growth and Business Cycles I",
+                    url: "https://raw.githubusercontent.com/rkataishi/Clases/4ccafb679da480f4ef6802bbac5420ed67aa7b83/Curso%20Doctorado%20Microeconomia%20Heterodoxa%20-%202025/Bibliografia%20Microeconomia%20Heterodoxa/Actividad%201/%20king1987%20bussiness%20cycles.pdf",
+                    source: "GitHub",
+                },
+            ];
+
+            const listEl = document.getElementById("paperList");
+
+            function renderList() {
+                listEl.innerHTML = "";
+                PAPERS.forEach((p) => {
+                    const li = document.createElement("li");
+                    li.className = "paper";
+
+                    const info = document.createElement("div");
+                    const h3 = document.createElement("h3");
+                    h3.textContent = p.title;
+                    const meta = document.createElement("div");
+                    meta.className = "meta";
+                    meta.innerHTML = `<span class="tag">${p.source || "PDF"}</span>`;
+                    info.appendChild(h3);
+                    info.appendChild(meta);
+
+                    const actions = document.createElement("div");
+                    if (p.url) {
+                        const btn = document.createElement("a");
+                        btn.className = "btn primary";
+                        btn.href = p.url;
+                        btn.target = "_blank";
+                        btn.rel = "noopener noreferrer";
+                        btn.textContent = "Acceder al artículo";
+                        actions.appendChild(btn);
+                    } else {
+                        const disabled = document.createElement("span");
+                        disabled.className = "btn disabled";
+                        disabled.textContent = "Sin URL disponible";
+                        actions.appendChild(disabled);
+                    }
+
+                    li.appendChild(info);
+                    li.appendChild(actions);
+                    listEl.appendChild(li);
+                });
+            }
+
+            renderList();
+        </script>
+    </body>
+</html>
